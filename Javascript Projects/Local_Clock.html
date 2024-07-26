@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Clock</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(28, 27, 27);
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            /* border: 1px solid white; */
+            color: white;
+            height: 300px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .clock {
+            height: 50px;
+            width: 200px;
+            background-color: rgb(210, 140, 10);
+            border-radius: 10px;
+        }
+
+        p {
+            font-size: 25px;
+        }
+
+        .clock {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p>Your Local Time</p>
+        <div class="clock"></div>
+    </div>
+
+    <script>
+        function updateClock() {
+            let date = new Date();
+            const clock = document.querySelector(".clock");
+            clock.innerHTML = `${date.toLocaleTimeString()}`;
+        }
+
+        setInterval(updateClock, 1000);
+
+        updateClock();
+    </script>
+</body>
+
+</html>
