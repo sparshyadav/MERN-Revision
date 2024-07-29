@@ -66,28 +66,55 @@
 
 
 // Using async await
-const promiseFive = new Promise((resolve, reject) => {
-    let error = false;
-    if (!error) {
-        resolve(
-            {
-                subject: "Javascript",
-                topic: "Promises"
-            }
-        )
-    }
-    else {
-        reject("ERROR");
-    }
-})
+// const promiseFive = new Promise((resolve, reject) => {
+//     let error = true;
+//     if (!error) {
+//         resolve(
+//             {
+//                 subject: "Javascript",
+//                 topic: "Promises"
+//             }
+//         )
+//     }
+//     else {
+//         reject("ERROR");
+//     }
+// })
 
-const consumePromiseFive = async () => {
-    try {
-        const response = await promiseFive;
-        console.log(response);
-    }
-    catch (error) {
+// const consumePromiseFive = async () => {
+//     try {
+//         const response = await promiseFive;
+//         console.log(response);
+//     }
+//     catch (error) {
+//         console.log(error);
+//     }
+// }
+// consumePromiseFive();
+
+
+// Fetching Data using Async Await
+// async function getAllUsers() {
+//     try {
+//         const response = await fetch("https://jsonplaceholder.typicode.com/users");
+//         const data = await response.json();
+//         console.log(data);
+//     }
+//     catch (error) {
+//         console.log(error);
+//     }
+// }
+// getAllUsers();
+
+
+// Fetching data using .then
+fetch("https://jsonplaceholder.typicode.com/users")
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        console.log(data);
+    })
+    .catch((error) => {
         console.log(error);
-    }
-}
-consumePromiseFive();
+    })
