@@ -33,29 +33,61 @@
 //         console.log(user);
 //     })
 
-// Promise Chaining
-new Promise((resolve, reject) => {
-    let error = false;
 
+// Promise Chaining
+// new Promise((resolve, reject) => {
+//     let error = false;
+
+//     if (!error) {
+//         resolve(
+//             {
+//                 username: "Sparsh",
+//                 email: "sparsh@gmail.com"
+//             }
+//         )
+//     }
+//     else {
+//         reject("Error");
+//     }
+// })
+//     .then((user) => {
+//         console.log(user);
+//         return user.username;
+//     })
+//     .then((username) => {
+//         console.log(username);
+//     })
+//     .catch((error) => {
+//         console.log(error);
+//     })
+//     .finally(() => {
+//         console.log("The Promise is Either Resolved or Rejected");
+//     })
+
+
+// Using async await
+const promiseFive = new Promise((resolve, reject) => {
+    let error = false;
     if (!error) {
         resolve(
             {
-                username: "Sparsh",
-                email: "sparsh@gmail.com"
+                subject: "Javascript",
+                topic: "Promises"
             }
         )
     }
     else {
-        reject("Error");
+        reject("ERROR");
     }
 })
-    .then((user) => {
-        console.log(user);
-        return user.username;
-    })
-    .then((username) => {
-        console.log(username);
-    })
-    .catch((error) => {
+
+const consumePromiseFive = async () => {
+    try {
+        const response = await promiseFive;
+        console.log(response);
+    }
+    catch (error) {
         console.log(error);
-    })
+    }
+}
+consumePromiseFive();
