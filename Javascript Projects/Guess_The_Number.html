@@ -1,10 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guess The Number</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            background-color: rgb(83, 77, 77);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            /* border: 1px solid white; */
+            padding: 25px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        input {
+            height: 35px;
+            width: 200px;
+        }
+
+        button {
+            height: 25px;
+            width: 100px;
+        }
+    </style>
 </head>
+
 <body>
     <div class="container">
         <h2>Number guessing Game</h2>
@@ -12,8 +50,53 @@
         <p>You only have 10 attempts to guess the number right</p>
         <h1>Guess the Number:</h1>
         <input type="text" />
-        <button>Submit Guess</button>
-        
+        <button class="submit">Submit Guess</button>
+        <div class="results">
+            <p class="remaining">You have only 10 Chances Remaining</p>
+            <p>Previous Answers: </p>
+            <p class="up-down"></p>
+            <h2 class="winner"></h2>
+        </div>
     </div>
+
+    <script>
+        let randomNumber = Math.ceil((Math.random()) * 100);
+        let chancesRemaining = 10;
+
+        console.log(randomNumber, chancesRemaining);
+
+        const btn = document.querySelector(".submit");
+        const input=document.getElementsByTagName("input");
+        const para = document.querySelector(".para");
+        const winner = document.querySelector(".winner");
+        const upDown = document.querySelector(".up-down");
+
+        let changes = [];
+
+        btn.addEventListener('click', (e) => {
+            let guess=input.value;
+            if (chancesRemaining == 0) {
+                para.innerHTML = `You Have ${chancesRemaining} Chances Remaining`;
+            }
+            else {
+                if (guess == randomNumber) {
+                    winner.innerHTML = `Yeah, You Guessed it Right`;
+                }
+                else {
+                    if (guess > randomNumber) {
+                        upDown.innerHTML = "Your Guess is Higher";
+                    }
+                    else {
+                        upDown.innerHTML = "Your Guess is Lower";
+                    }
+                }
+
+                para.innerHTML = `You Have ${chancesRemaining} Chances Remaining`;
+                changes.push(e.target.value);
+                chancesRemaining--;
+            }
+        })
+    </script>
 </body>
+
 </html>
