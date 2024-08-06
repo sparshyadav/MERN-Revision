@@ -49,6 +49,7 @@
   justify-content: center;
   align-items: center;
   margin: 25px;
+  gap: 25px;
 }
 
 .searchInput {
@@ -67,7 +68,7 @@
 }
 
 .resCard {
-  height: 350px;
+  height: 400px;
   width: 200px;
   display: flex;
   flex-direction: column;
@@ -77,14 +78,14 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.resImage {
+.resImage {  
   width: 100%;
   height: 60%;
   object-fit: cover;
 }
 
 .resContainer{
-  display: flex;
+  display: flex; 
   justify-content: center;
   align-items: center;
   margin: 15px;
@@ -108,4 +109,12 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.filterBtn{
+  height: 50px;
+  width: 250px;
+  background-color: #f26c4a;
+  border: none;
+  cursor: pointer;
 }
