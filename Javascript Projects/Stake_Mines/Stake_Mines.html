@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'poppins', 'sans-serif';
+        }
+
+        body {
+            background-color: #1A2C38;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+
+        .container {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            width: 100%;
+            height: 60px;
+            background-color: #1A2C38;
+            filter: drop-shadow(5px 5px 10px #000000);
+        }
+
+        .navLogo {
+            color: white;
+            position: relative;
+            top: 25%;
+            left: 10%;
+        }
+
+        .game {
+            display: flex;
+            /* border: 1px solid red; */
+        }
+
+        .input {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            justify-content: center;
+            align-items: center;
+            /* border: 1px solid blue; */
+        }
+
+        .right {
+            width: 60%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mineBox {
+            height: 80%;
+            width: 60%;
+            /* border: 1px solid white; */
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .mines {
+            background-color: #2F4553;
+            height: 100px;
+            width: 100px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: .5s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mines:hover {
+            background-color: #516470;
+        }
+
+        .rows {
+            display: flex;
+            gap: 10px;
+        }
+
+        .dropdown {
+            height: 40px;
+            width: 250px;
+            text-align: center;
+
+        }
+
+        .bet,
+        .reset {
+            height: 55px;
+            width: 250px;
+            background-color: #1FFF20;
+            border-radius: 8px;
+            transition: .2s;
+            cursor: pointer;
+        }
+
+        .bet:hover,
+        .reset:hover {
+            background-color: #84fd84;
+        }
+        /* .circle {
+            height: 75px;
+            width: 75px;
+            border-radius: 50%;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <p class="navLogo">Stake</p>
+        </div>
+        <div class="game">
+            <div class="input">
+                <select name="" id="" class="dropdown">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                </select>
+                <button class="bet">Bet</button>
+            </div>
+            <div class="right">
+                <div class="mineBox">
+                    <div class="row1 rows">
+                        <div class="mines" id="1" hasMine="false">
+                            <!-- <div class="circle"></div> -->
+                        </div>
+                        <div class="mines" id="2" hasMine="false">
+                            <!-- <div class="circle"></div> -->
+                        </div>
+                        <div class="mines" id="3" hasMine="false">
+                            <!-- <div class="circle"></div> -->
+                        </div>
+                        <div class="mines" id="4" hasMine="false">
+                            <!-- <div class="circle"></div> -->
+                        </div>
+                        <div class="mines" id="5" hasMine="false">
+                            <!-- <div class="circle"></div> -->
+                        </div>
+                    </div>
+                    <div class="row2 rows">
+                        <div class="mines" id="6" hasMine="false">
+                            <!-- <div class="circle"></div> -->
+                        </div>
+                        <div class="mines" id="7" hasMine="false">
+                            <!-- <div class="circle"></div> -->
+                        </div>
+                        <div class="mines" id="8" hasMine="false">
+                            <!-- <div class="circle"></div> -->
+                        </div>
+                        <div class="mines" id="9" hasMine="false">
+                            <!-- <div class="circle"></div> -->
+                        </div>
+                        <div class="mines" id="10" hasMine="false">
+                            <!-- <div class="circle"></div> -->
+                        </div>
+                    </div>
+                    <div class="row3 rows">
+                        <div class="mines" id="11" hasMine="false">
+                            <!-- <div class="circle"></div> -->
+                        </div>
+                        <div class="mines" id="12" hasMine="false">
+                            <!-- <div class="circle"></div> -->
+                        </div>
+                        <div class="mines" id="13" hasMine="false">
+                            <!-- <div class="circle"></div> -->
+                        </div>
+                        <div class="mines" id="14" hasMine="false">
+                            <!-- <div class="circle"></div> -->
+                        </div>
+                        <div class="mines" id="15" hasMine="false">
+                            <!-- <div class="circle"></div> -->
+                        </div>
+                    </div>
+                    <div class="row4 rows">
+                        <div class="mines" id="16" hasMine="false">
+                            <!-- <div class="circle"></div> -->
+                        </div>
+                        <div class="mines" id="17" hasMine="false">
+                            <!-- <div class="circle"></div> -->
+                        </div>
+                        <div class="mines" id="18" hasMine="false">
+                            <!-- <div class="circle"></div> -->
+                        </div>
+                        <div class="mines" id=" 19" hasMine="false">
+                            <!-- <div class="circle"></div> -->
+                        </div>
+                        <div class="mines" id="20" hasMine="false">
+                            <!-- <div class="circle"></div> -->
+                        </div>
+                    </div>
+                    <div class="row5 rows">
+                        <div class="mines" id="21" hasMine="false">
+                            <!-- <div class="circle"></div> -->
+                        </div>
+                        <div class="mines" id="22" hasMine="false">
+                            <!-- <div class="circle"></div> -->
+                        </div>
+                        <div class="mines" id="23" hasMine="false">
+                            <!-- <div class="circle"></div> -->
+                        </div>
+                        <div class="mines" id="24" hasMine="false">
+                            <!-- <div class="circle"></div> -->
+                        </div>
+                        <div class="mines" id="25" hasMine="false">
+                            <!-- <div class="circle"></div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const select = document.querySelector(".dropdown");
+        let mines = select.value;
+
+        select.addEventListener("change", (e) => {
+            mines = select.value;
+            console.log(mines);
+        })
+
+        let minesBox = [];
+
+        let isBetButtonClicked = false;
+        const betBtn = document.querySelector(".bet")
+        betBtn.addEventListener("click", (e) => {
+            let count = 0;
+            while (count < mines) {
+                let mineId = Math.ceil(Math.random() * 25);
+                if (!minesBox.includes(mineId)) {
+                    const mineElement = document.getElementById(mineId);
+                    if (mineElement) {
+                        mineElement.setAttribute('hasMine', 'true');
+                        minesBox.push(mineId);
+                        console.log(mineId);
+
+                        count++;
+                    }
+                }
+            }
+
+            isBetButtonClicked = true;
+        })
+
+        const checkMine = document.querySelector(".mineBox");
+        checkMine.addEventListener("click", (e) => {
+            if (isBetButtonClicked) {
+                const clickedMine = e.target.id;
+                // console.log(e.target);
+                // console.log((clickedMine));
+                // console.log(typeof clickedMine);
+
+                const circle = document.getElementById(clickedMine);
+                console.log(circle);
+                const newElement = document.createElement("img");
+                newElement.classList.add("circle");
+
+                if (minesBox.includes(parseInt(clickedMine))) {
+                    // circle.style.background='red';
+                    newElement.src = './bomb.png';
+                    newElement.style.height = '75px';
+                    newElement.style.width = '75px';
+                    newElement.style.transition="1s";
+                    circle.append(newElement);
+                    isBetButtonClicked = false;
+
+                    const input = document.querySelector(".input");
+                    const resetBtn = document.createElement("button");
+                    resetBtn.setAttribute('class', 'reset');
+                    resetBtn.textContent = 'Reset';
+
+                    const betBtn = document.querySelector(".bet");
+                    betBtn.remove();
+                    input.appendChild(resetBtn);
+
+                    resetBtn.addEventListener('click', () => {
+                        location.reload();
+                    });
+                }
+                else {
+                    // circle.style.background = 'green';
+                    newElement.src = './diamond.png';
+                    newElement.style.color="green";
+                    newElement.style.height = '75px';
+                    newElement.style.width = '75px';
+                    newElement.style.transition="1s";
+                    circle.append(newElement);
+                }
+            }
+        })        
+    </script>
+</body>
+
+</html>
