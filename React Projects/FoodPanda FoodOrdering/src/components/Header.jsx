@@ -1,6 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Header = () => {
+    const [btnName, setBtnName]=useState("Login");
+
+    const toggleBtnName=()=>{
+        if(btnName=="Login"){
+            setBtnName("Logout");
+        }
+        else{
+            setBtnName("Login");
+        }
+    }
+
     return (
         <div className='header'>
             <div className="logoContainer">
@@ -12,6 +23,7 @@ const Header = () => {
                     <li>About Us</li>
                     <li>Contact Us</li>
                     <li>Cart</li>
+                    <button className='login' onClick={toggleBtnName}>{btnName}</button>
                 </ul>
             </div>
         </div>

@@ -78,20 +78,20 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.resImage {  
+.resImage {
   width: 100%;
   height: 60%;
   object-fit: cover;
 }
 
-.resContainer{
-  display: flex; 
+.resContainer {
+  display: flex;
   justify-content: center;
   align-items: center;
   margin: 15px;
 }
 
-.restraunts{
+.restraunts {
   width: 80%;
   display: flex;
   flex-wrap: wrap;
@@ -100,20 +100,30 @@
   gap: 25px;
 }
 
-.resName, .resCuisine, .resRating{
+.resName,
+.resCuisine,
+.resRating {
   margin-right: 15px;
 }
 
-.resDetails{
+.resDetails {
   padding: 0px 15px 0px 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.filterBtn{
+.filterBtn {
   height: 50px;
   width: 250px;
+  background-color: #f26c4a;
+  border: none;
+  cursor: pointer;
+}
+
+.login {
+  height: 50px;
+  width: 75px;
   background-color: #f26c4a;
   border: none;
   cursor: pointer;
