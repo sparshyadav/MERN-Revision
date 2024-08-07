@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 
 const Header = () => {
-    const [btnName, setBtnName]=useState("Login");
+    const [btnName, setBtnName] = useState("Login");
 
-    const toggleBtnName=()=>{
-        if(btnName=="Login"){
+    const toggleBtnName = () => {
+        if (btnName == "Login") {
             setBtnName("Logout");
         }
-        else{
+        else {
             setBtnName("Login");
         }
     }

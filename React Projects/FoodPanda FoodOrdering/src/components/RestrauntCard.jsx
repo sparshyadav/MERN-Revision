@@ -11,10 +11,10 @@ const RestrauntCard = (props) => {
         <div className='resCard'>
             <img className='resImage' src={imageURL} alt="No  Image Found" fallback={<Shimmer width={800} height={600} />} />
             <div className="resDetails" fallback={<Shimmer width={800} height={600} />}>
-            <h3 className='resName' fallback={<Shimmer width={800} height={600} />}>{name}</h3>
-            <h4 className='resCuisine' fallback={<Shimmer width={800} height={600} />}>{displayedCuisines}</h4>
-            <h4 className='resRating' fallback={<Shimmer width={800} height={600} />}>{avgRating}</h4>
-        </div>
+                <h3 className='resName' fallback={<Shimmer width={800} height={600} />}>{name}</h3>
+                <h4 className='resCuisine' fallback={<Shimmer width={800} height={600} />}>{displayedCuisines}</h4>
+                <h4 className='resRating' fallback={<Shimmer width={800} height={600} />}>{avgRating}</h4>
+            </div>
         </div >
     )
 }
