@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import RestrauntCard from './RestrauntCard'
 import Shimmer from './Shimmer';
+import { Link } from 'react-router-dom';
+import useOnlineStatus from '../utils/useOnlineStatus';
 
 const Body = () => {
     const [resData, setResData] = useState([]);
@@ -36,6 +38,17 @@ const Body = () => {
         setFilteredRestraunts(result);
     };
 
+    const onlineStatus = useOnlineStatus();
+
+    if (onlineStatus === false) {
+        return (
+            <>
+                <h1>Looks like you are offline</h1>
+                <h1>Please Check Your Internet Connestion</h1>
+            </>
+        )
+    }
+
 
     if (resData.length === 0) {
         return (<Shimmer />);
@@ -51,7 +64,7 @@ const Body = () => {
             <div className="resContainer">
                 <div className="restraunts">
                     {
-                        filteredRestraunts.map((restraunt) => <RestrauntCard key={restraunt.info.id} resData={restraunt} />)
+                        filteredRestraunts.map((restraunt) => <Link to={"/restraunt/" + restraunt.info.id} key={restraunt.info.id}><RestrauntCard resData={restraunt} /></Link>)
                     }
                 </div>
             </div>
